@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Users Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="container mx-auto p-5">
+      <h1 class="text-red-500 font-bold text-xl">User Details</h1>
+      <div class="flex flex-col">
+        <div class="flex gap-4">
+          <h2 class="font-semibold font-base">Name:</h2>
+          <h2 class="text-blue-300" th:text="${user.name}"></h2>
+        </div>
+        <div class="flex gap-4">
+          <h2 class="font-semibold font-base">Email:</h2>
+          <h2 class="text-blue-300" th:text="${user.email}"></h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

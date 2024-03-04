@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Users Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function loadUserPage(userId) {
+        window.location.href = "/users/" + userId;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container mx-auto p-5">
+      <h1 class="text-red-500 font-bold text-xl">Welcome Here</h1>
+      <div class="grid grid-col-2 md:grid-cols-4 gap-3">
+        <!-- Iterate over the list of users -->
+        <div
+          class="rounded-md bg-gray-200 flex flex-col gap-2 cursor-pointer"
+          th:each="user : ${users}"
+          th:attr="onclick=${'loadUserPage('+user.id+')'}"
+        >
+          <div class="flex flex-col items-center justify-center gap-1">
+            <h2 class="font-semibold font-base">Name:</h2>
+            <!-- Access user's name property -->
+            <h2 class="text-blue-300" th:text="${user.name}"></h2>
+          </div>
+          <div class="flex flex-col items-center justify-center gap-1">
+            <h2 class="font-semibold font-base">Email:</h2>
+            <!-- Access user's email property -->
+            <h2 class="text-blue-300" th:text="${user.email}"></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
